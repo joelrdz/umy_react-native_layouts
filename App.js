@@ -1,42 +1,56 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image, Text, ScrollView } from 'react-native';
 
 const App = () => {
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.box1}></View>
-        <View style={styles.box2}></View>
-        <View style={styles.box3}></View>
-        <View style={styles.box4}></View>
-      </View>
+      <ScrollView>
+        <View style={{ flexDirection: 'row' }}>
+          <Image style={styles.banner} source={require('./assets/img/bg.jpg')}/>
+        </View>
+
+        <View style={styles.container}>
+          <Text style={styles.title}>Qué hacer en Paris</Text>
+          <ScrollView horizontal>
+            <View>
+              <Image style={styles.activity} source={require('./assets/img/act-1.jpg')} />
+            </View>
+            <View>
+              <Image style={styles.activity} source={require('./assets/img/act-2.jpg')} />
+            </View>
+            <View>
+              <Image style={styles.activity} source={require('./assets/img/act-3.jpg')} />
+            </View>
+            <View>
+              <Image style={styles.activity} source={require('./assets/img/act-4.jpg')} />
+            </View>
+            <View>
+              <Image style={styles.activity} source={require('./assets/img/act-5.jpg')} />
+            </View>
+          </ScrollView>
+        </View>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
+  banner: {
+    height: 250,
+    flex: 1
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginVertical: 20
+  },
   container: {
-    backgroundColor: 'cornflowerblue',
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginHorizontal: 10
   },
-  box1: {
-    padding: 20,
-    backgroundColor: 'navy'
-  },
-  box2: {
-    padding: 20,
-    backgroundColor: 'yellow'
-  },
-  box3: {
-    padding: 20,
-    backgroundColor: 'green'
-  },
-  box4: {
-    padding: 20,
-    backgroundColor: 'teal'
+  activity: {
+    width: 250,
+    height: 300,
+    marginRight: 10
   }
 });
 
